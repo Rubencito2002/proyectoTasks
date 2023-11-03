@@ -62,3 +62,24 @@ Despues de esta configuración ejecutaremos el siguiente comando para probar en 
 ```
 
 Paso 4: Creacción de Modelo.
+Para la creación de nuestra aplicacion de tarea ejecutaremos lo siguiente en la terminal:
+```bash
+    # Para la creacion de nuestra aplicacion de tarea.
+    python manage.py startapp task
+```
+
+Despues configuraremos lo siguiente en el fichero mysite/settings.py
+
+```python
+    INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'task',
+]
+```
+
+Ahora configuraremos el fichero de modelo en la carpeta de task.
