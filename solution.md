@@ -110,3 +110,31 @@ Abre el fichero task/admin.py en el editor y reemplaza su contenido con esto:
 
     admin.site.register(Task)
 ```
+
+Despues de añadir lo anterior en el fichero indicado tendremos que ejecutar lo siguiente en la terminal:
+```bash
+    # Creaccion del usuario.
+    python manage.py createsuperuser
+```
+
+Paso 6: Configuración de las Urls.
+Para la configuración de las urls de nuestro proyecto tendremos que modificar lo siguiente:
+```python
+    from django.contrib import admin
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('task.urls')),
+    ]
+```
+
+Crea un nuevo fichero vacío llamado urls.py en el directorio task para añadir lo siguiente en el fichero:
+```python
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path('', views.post_list, name='post_list'),
+    ]
+```
