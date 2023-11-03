@@ -1,7 +1,7 @@
 # Pasos a seguir para la creaccion de nuestro proyecto:
 
 ## Paso 1: Instalacion de lo necesario:
-
+Para este proyecto necesitaremos realizar lo siguinte:
 ```bash
     # Creaccion del entorno virtual.
     mkvirtualenv pruebaDjango
