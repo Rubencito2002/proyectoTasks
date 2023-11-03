@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Task
 
-def post_list(request):
-    return render(request, 'task/task_list.html', {})
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks/task_list.html', {'tasks': tasks})

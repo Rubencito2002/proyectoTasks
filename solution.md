@@ -143,9 +143,14 @@ Paso 7: Creacción de las vistas.
 Ahora configuraremos el fichero views.py de la carpeta task que pondremos lo siguiete:
 ```python
 from django.shortcuts import render
+from .models import Task
 
-def post_list(request):
-    return render(request, 'task/task_list.html', {})
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks/task_list.html', {'tasks': tasks})
 ```
 
 Paso 8: Creacción de plantillas.
+Ahora crearemos en la carpeta de task un nuevo directorio llamado templates y dentro de ella crearemos otra carpeta llamada tasks.
+Dentro de esta carpeta crearemos nuestra primera plantilla con el siguiente nombre task_list.html, dentro del fichero pondremos lo siguiente:
+
