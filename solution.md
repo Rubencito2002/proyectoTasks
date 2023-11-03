@@ -82,4 +82,31 @@ Despues configuraremos lo siguiente en el fichero mysite/settings.py
 ]
 ```
 
-Ahora configuraremos el fichero de modelo en la carpeta de task.
+Ahora configuraremos el fichero de modelo en la carpeta de task. Que lo que pondremos en ese fichero sera lo siguiente:
+```python
+from django.db import models
+
+class Task(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    completed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+
+Despues de añadir en fichero lo anterior tendremos que ejecutar lo siguiente en la terminal:
+
+```bash
+    # Para preparar los ficheros para migrarlo a la base de datos.
+    python manage.py makemigrations task
+
+    # Django preparó un archivo de migración que ahora tenemos que aplicar a nuestra base de datos.
+    python manage.py migrate task
+```
+Paso 5: Administracción de Django.
+Abre el fichero task/admin.py en el editor y reemplaza su contenido con esto:
+```python
+    from django.contrib import admin
+    from .models import Task
+
+    admin.site.register(Task)
+```
