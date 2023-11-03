@@ -1,8 +1,15 @@
 <html>
-<head>
-    <title>Task List</title>
-</head>
-<body>
-    <h1>Lista de Tareas</h1>
-</body>
+    <head>
+        <title>Task List</title>
+    </head>
+    <body>
+        <h1>Lista de Tareas</h1>
+        <ul>
+            {% for task in task %}
+                <li>{{ task.title }} - {{ task.description }} - {{task.completed|yesno:"Sí"}}</li>
+                {% empty %}
+                <li>No hay tareas</li>
+            {% endfor % }
+        </ul>
+    </body>
 </html>

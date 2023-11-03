@@ -153,4 +153,20 @@ def task_list(request):
 Paso 8: Creacción de plantillas.
 Ahora crearemos en la carpeta de task un nuevo directorio llamado templates y dentro de ella crearemos otra carpeta llamada tasks.
 Dentro de esta carpeta crearemos nuestra primera plantilla con el siguiente nombre task_list.html, dentro del fichero pondremos lo siguiente:
-
+```text
+    <html>
+        <head>
+            <title>Task List</title>
+        </head>
+        <body>
+            <h1>Lista de Tareas</h1>
+            <ul>
+                {% for task in tasks %}
+                    <li>{{ task.title }} - {{ task.description }} - {{task.completed|yesno:"Sí"}}</li>
+                    {% empty %}
+                    <li>No hay tareas</li>
+                {% endfor % }
+            </ul>
+        </body>
+    </html>
+```
