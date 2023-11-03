@@ -135,6 +135,15 @@ Crea un nuevo fichero vacío llamado urls.py en el directorio task para añadir 
     from . import views
 
     urlpatterns = [
-        path('', views.post_list, name='post_list'),
+        path('', views.task_list, name='task_list'),
     ]
+```
+
+Paso 7: Creacción de las vistas.
+Ahora configuraremos el fichero views.py de la carpeta task que pondremos lo siguiete:
+```python
+from django.shortcuts import render
+
+def post_list(request):
+    return render(request, 'task/task_list.html', {})
 ```
