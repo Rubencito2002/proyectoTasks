@@ -12,6 +12,13 @@ Paso 1: Instalacion de lo necesario:
     # Ejecucion del fichero requirements
     pip install -r requirements.txt
 ```
+
+Para el fichero requirements.txt pondremos lo siguiente:
+
+```text
+    Django~=4.2.7
+```
+
 Paso 2: Creaccion de nuestro proyecto:
 
 ```bash
