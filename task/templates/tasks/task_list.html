@@ -8,7 +8,7 @@
             {% for task in tasks %}
             <li>
                 <h2>{{ task.title }}</h2>
-                <p>{{ task.description }} - {{ tasks.completed|yesno:"Si" }}</p>
+                <p>{{ task.description }} - {% if task.completed %} Sí {% else %} No {% endif %}</p>
             </li>
             {% empty %}
             <p>No hay tareas disponibles.</p>

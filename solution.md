@@ -162,28 +162,9 @@ Dentro de esta carpeta crearemos nuestra primera plantilla con el siguiente nomb
             <h1>Lista de Tareas</h1>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.title }} - {{ task.description }} - {{task.completed|yesno:"Sí"}}</li>
-                    {% empty %}
-                    <li>No hay tareas</li>
-                {% endfor % }
-            </ul>
-        </body>
-    </html>
-```
-
-Version Corregida
-```text
-    <html>
-        <head>
-            <title>Task List</title>
-        </head>
-        <body>
-            <h1>Lista de Tareas</h1>
-            <ul>
-                {% for task in tasks %}
                 <li>
                     <h2>{{ task.title }}</h2>
-                    <p>{{ task.description }} - {{ tasks.completed|yesno:"Si" }}</p>
+                    <p>{{ task.description }} - {% if task.completed %} Sí {% else %} No {% endif %}</p>
                 </li>
                 {% empty %}
                 <p>No hay tareas disponibles.</p>
