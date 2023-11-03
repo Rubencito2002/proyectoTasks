@@ -1,1 +1,1 @@
-# pruebaDjango
+Creaccion de un proyecto de django de una aplicacion de tareas. Para más información mirar el fichero solution.md
