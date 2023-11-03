@@ -147,3 +147,5 @@ from django.shortcuts import render
 def post_list(request):
     return render(request, 'task/task_list.html', {})
 ```
+
+Paso 8: Creacción de plantillas.
