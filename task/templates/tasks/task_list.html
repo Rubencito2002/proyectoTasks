@@ -5,11 +5,14 @@
     <body>
         <h1>Lista de Tareas</h1>
         <ul>
-            {% for task in task %}
-                <li>{{ task.title }} - {{ task.description }} - {{task.completed|yesno:"Sí"}}</li>
-                {% empty %}
-                <li>No hay tareas</li>
-            {% endfor % }
+            {% for task in tasks %}
+            <li>
+                <h2>{{ task.title }}</h2>
+                <p>{{ task.description }} - {{ tasks.completed|yesno:"Si" }}</p>
+            </li>
+            {% empty %}
+            <p>No hay tareas disponibles.</p>
+            {% endfor %}
         </ul>
     </body>
 </html>

@@ -170,3 +170,25 @@ Dentro de esta carpeta crearemos nuestra primera plantilla con el siguiente nomb
         </body>
     </html>
 ```
+
+Version Corregida
+```text
+    <html>
+        <head>
+            <title>Task List</title>
+        </head>
+        <body>
+            <h1>Lista de Tareas</h1>
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <h2>{{ task.title }}</h2>
+                    <p>{{ task.description }} - {{ tasks.completed|yesno:"Si" }}</p>
+                </li>
+                {% empty %}
+                <p>No hay tareas disponibles.</p>
+                {% endfor %}
+            </ul>
+        </body>
+    </html>
+```
