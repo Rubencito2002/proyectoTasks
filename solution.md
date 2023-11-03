@@ -90,7 +90,9 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     completed = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
 ```
 
 Despues de añadir en fichero lo anterior tendremos que ejecutar lo siguiente en la terminal:
@@ -147,7 +149,7 @@ from .models import Task
 
 def task_list(request):
     tasks = Task.objects.all()
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+    return render(request, 'tasks/task_list.html', {'tasks': task})
 ```
 
 ## Paso 8: Creacción de plantillas.
