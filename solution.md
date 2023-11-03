@@ -1,6 +1,6 @@
-Pasos a seguir para la creaccion de nuestro proyecto:
+# Pasos a seguir para la creaccion de nuestro proyecto:
 
-Paso 1: Instalacion de lo necesario:
+## Paso 1: Instalacion de lo necesario:
 
 ```bash
     # Creaccion del entorno virtual.
@@ -19,14 +19,14 @@ Para el fichero requirements.txt pondremos lo siguiente:
     Django~=4.2.7
 ```
 
-Paso 2: Creaccion de nuestro proyecto:
+## Paso 2: Creaccion de nuestro proyecto:
 
 ```bash
     # Para crear los archivos y directorios.
     django-admin startproject mysite .
 ```
 
-Paso 3: Configuración Básica de nuestro proyecto:
+## Paso 3: Configuración Básica de nuestro proyecto:
 Ahora configuraremos el fichero que esta ubicando en mysite/settings.py y le cambiaremos lo siguinte:
 
 ```python
@@ -61,7 +61,7 @@ Despues de esta configuración ejecutaremos el siguiente comando para probar en 
     python manage.py runserver
 ```
 
-Paso 4: Creacción de Modelo.
+## Paso 4: Creacción de Modelo.
 Para la creación de nuestra aplicacion de tarea ejecutaremos lo siguiente en la terminal:
 ```bash
     # Para la creacion de nuestra aplicacion de tarea.
@@ -102,7 +102,7 @@ Despues de añadir en fichero lo anterior tendremos que ejecutar lo siguiente en
     # Django preparó un archivo de migración que ahora tenemos que aplicar a nuestra base de datos.
     python manage.py migrate task
 ```
-Paso 5: Administracción de Django.
+## Paso 5: Administracción de Django.
 Abre el fichero task/admin.py en el editor y reemplaza su contenido con esto:
 ```python
     from django.contrib import admin
@@ -117,7 +117,7 @@ Despues de añadir lo anterior en el fichero indicado tendremos que ejecutar lo 
     python manage.py createsuperuser
 ```
 
-Paso 6: Configuración de las Urls.
+## Paso 6: Configuración de las Urls.
 Para la configuración de las urls de nuestro proyecto tendremos que modificar lo siguiente:
 ```python
     from django.contrib import admin
@@ -139,7 +139,7 @@ Crea un nuevo fichero vacío llamado urls.py en el directorio task para añadir 
     ]
 ```
 
-Paso 7: Creacción de las vistas.
+## Paso 7: Creacción de las vistas.
 Ahora configuraremos el fichero views.py de la carpeta task que pondremos lo siguiete:
 ```python
 from django.shortcuts import render
@@ -150,7 +150,7 @@ def task_list(request):
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 ```
 
-Paso 8: Creacción de plantillas.
+## Paso 8: Creacción de plantillas.
 Ahora crearemos en la carpeta de task un nuevo directorio llamado templates y dentro de ella crearemos otra carpeta llamada tasks.
 Dentro de esta carpeta crearemos nuestra primera plantilla con el siguiente nombre task_list.html, dentro del fichero pondremos lo siguiente:
 ```text
