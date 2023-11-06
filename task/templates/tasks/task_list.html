@@ -5,10 +5,10 @@
     <body>
         <h1>Lista de Tareas</h1>
         <ul>
-            {% for task in tasks %}
+            {% for Task in Tasks %}
             <li>
-                <h2>{{ task.title }}</h2>
-                <p>{{ task.description }} - {% if task.completed %} Sí {% else %} No {% endif %}</p>
+                <h2>{{ Task.title }}</h2>
+                <p>{{ Task.description }} - {% if Task.completed %} Sí {% else %} No {% endif %}</p>
             </li>
             {% empty %}
             <p>No hay tareas disponibles.</p>
