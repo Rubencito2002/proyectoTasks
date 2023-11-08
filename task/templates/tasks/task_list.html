@@ -3,12 +3,19 @@
         <title>Task List</title>
     </head>
     <body>
+        <h1>Nueva Tarea</h1>
+        <form action="{% url 'task_list' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button  type="submit">Nueva Tarea</button>
+        </form>
+
         <h1>Lista de Tareas</h1>
         <ul>
             {% for Task in Tasks %}
             <li>
                 <h2>{{ Task.title }}</h2>
-                <p>{{ Task.description }} - {% if Task.completed %} Sí {% else %} No {% endif %}</p>
+                <p>{{ Task.description }} - ({{ Task.completed|yesno:"Si,No" }})</p>
             </li>
             {% empty %}
             <p>No hay tareas disponibles.</p>
