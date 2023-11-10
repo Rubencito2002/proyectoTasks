@@ -16,11 +16,17 @@ from .forms import TaskForm
 #    return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
 
 class TaskViews(View):
-    #task_list_template = 'tasks/task_list.html'
+    tasks = Task.objects.all()
+    task_list_template = 'tasks/task_list.html'
+
+    def actualizarTask(self):
+        self.tasks = Task.objects.all()
+        return self.tasks
+
     def get(self,request):
         tasks = Task.objects.all()
         form = TaskForm()
-        return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
+        return render(request, 'tasks/task_list.html', {'tasks': self.actualizarTask(), 'form': form})
 
     def post(self,request):
         form = TaskForm(request.POST)
@@ -28,4 +34,4 @@ class TaskViews(View):
             form.save()
             return redirect('task_list')
         tasks = Task.objects.all()
-        return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
+        return render(request, 'tasks/task_list.html', {'tasks': self.actualizarTask(), 'form': form})
