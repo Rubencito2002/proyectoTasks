@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>Nueva Tarea</h1>
-        <form action="{% url 'task_list' %}" method="post">
+        <form action="{% url 'TaskViews' %}" method="post">
             {% csrf_token %}
             {{ form.as_p}}
             <button  type="submit">Nueva Tarea</button>

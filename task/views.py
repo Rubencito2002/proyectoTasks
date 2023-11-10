@@ -1,15 +1,31 @@
 from django.shortcuts import render, redirect
+from django.views import View
 from .models import Task
 from .forms import TaskForm
 
-def task_list(request):
-    tasks = Task.objects.all()
+#def task_list(request):
+#    tasks = Task.objects.all()
+#
+#    if request.method == 'POST' :
+#        form = TaskForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            return redirect('task_list')
+#    else:
+#        form = TaskForm()
+#    return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
 
-    if request.method == 'POST' :
+class TaskViews(View):
+    #task_list_template = 'tasks/task_list.html'
+    def get(self,request):
+        tasks = Task.objects.all()
+        form = TaskForm()
+        return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
+
+    def post(self,request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('task_list')
-    else:
-        form = TaskForm()
-    return render(request, 'tasks/task_list.html', {'tasks': Task, 'form': form})
+        tasks = Task.objects.all()
+        return render(request, 'tasks/task_list.html', {'tasks': tasks, 'form': form})
