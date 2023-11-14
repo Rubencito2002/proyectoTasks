@@ -37,6 +37,6 @@ class TaskViews(View):
             description = form.cleaned_data['description']
             completed = form.cleaned_data['completed']
             Task.objects.create(title = title, description = description, completed = completed)
-            return redirect('task_list')
+            return redirect('TaskViews')
         tasks = Task.objects.all()
         return render(request, self.nombre_template, {'tasks': self.actualizarTask(), 'form': form})
