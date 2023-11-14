@@ -18,7 +18,7 @@ def task_list(request):
 """
 class TaskViews(View):
     tasks = Task.objects.all()
-    #task_list_template = 'tasks/task_list.html'
+    nombre_template = 'tasks/task_list.html'
 
     def actualizarTask(self):
         self.tasks = Task.objects.all()
@@ -27,7 +27,7 @@ class TaskViews(View):
     def get(self,request):
         tasks = Task.objects.all()
         form = TaskForm()
-        return render(request, 'tasks/task_list.html', {'tasks': self.actualizarTask(), 'form': form})
+        return render(request, self.nombre_template, {'tasks': self.actualizarTask(), 'form': form})
 
     def post(self,request):
         form = TaskForm(request.POST)
@@ -39,4 +39,4 @@ class TaskViews(View):
             Task.objects.create(title = title, description = description, completed = completed)
             return redirect('task_list')
         tasks = Task.objects.all()
-        return render(request, 'tasks/task_list.html', {'tasks': self.actualizarTask(), 'form': form})
+        return render(request, self.nombre_template, {'tasks': self.actualizarTask(), 'form': form})

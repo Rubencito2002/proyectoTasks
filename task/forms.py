@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task
+#from .models import Task
 
 # Usando modelForm
 """
@@ -10,6 +10,6 @@ class TaskForm(forms.ModelForm):
 """
 # Usando Form
 class TaskForm(forms.Form):
-    tittle = forms.CharField(max_length=50)
-    description = forms.CharField(widget=forms.Textarea)
-    completed = forms.BooleanField(required=False)
+    tittle = forms.CharField(label="tittle", max_length=200)
+    description = forms.CharField(label="description", widget=forms.Textarea)
+    completed = forms.BooleanField(label="completed", required=False)
