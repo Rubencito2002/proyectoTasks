@@ -1,25 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
-        <title>Task List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de Tarea</title>
     </head>
     <body>
-        <h1>Nueva Tarea</h1>
-        <form action="{% url 'TaskViews' %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p}}
-            <button  type="submit">Nueva Tarea</button>
-        </form>
-
         <h1>Lista de Tareas</h1>
         <ul>
-            {% for Task in Tasks %}
-            <li>
-                <h2>{{ Task.title }}</h2>
-                <p>{{ Task.description }} - ({{ Task.completed|yesno:"Si,No" }})</p>
-            </li>
-            {% empty %}
-            <p>No hay tareas disponibles.</p>
+            {% for task in tasks %}
+                <li>
+                    <h2> <a href="{% url 'task_details' pk=task.pk%}"> {{ task.title }} </a></h2>
+                </li>
+                {% empty %}
+                <li>No hay tareas disponibles.</li>
             {% endfor %}
         </ul>
+
+        <form action="{% url 'task_new' %}">
+            <button  type="submit">Nueva Tarea</button>
+        </form>
     </body>
 </html>
